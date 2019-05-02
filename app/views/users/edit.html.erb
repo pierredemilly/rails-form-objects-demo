@@ -1,0 +1,20 @@
+<h1>Editing User</h1>
+
+<%= simple_form_for(@form, url: @user, method: :put) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <p><%= f.input :email %></p>
+    <p><%= f.input :first_name %></p>
+    <p><%= f.input :last_name %></p>
+    <p><%= f.input :phone %></p>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Update" %>
+  </div>
+<% end %>
+
+<%= link_to 'Show', @user %> |
+<%= link_to 'Back', users_path %>
